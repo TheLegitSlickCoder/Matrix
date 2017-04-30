@@ -1,0 +1,79 @@
+<!-- Matrix By SlickCoder (Hrishikesh Bagalkote) -->
+
+<!doctype html>
+<title>Matrix</title>
+<meta charset="utf-8">
+
+<!-- CSS: -->
+<style>
+body {
+  background-color: black;
+}
+h1, h2, h3, h4, h5, h5, p, li, ol, ul {
+  text-align: center;
+  color: green;
+  font-family: arial;
+}
+div {
+  text-align: center;
+}
+button {
+  background-color: rgb(50, 50, 50);
+  color: white;
+  border: none;
+  font-size: 25px;
+}
+button:hover {
+  color: green;
+}
+input, textarea {
+  font-size: 25px;
+  background-color: rgb(50, 50, 50);
+  color: green;
+  border: none;
+}
+</style>
+
+<!-- HTML -->
+<html>
+<h1>Matrix</h1>
+<br>
+<br>
+<div id= "content">
+  <input id= "amount", placeholder= "Numbers to generate:"></input>
+  <button onclick= "startMatrix()">Generate</button>
+  <h3 id= "binaryObj"></h3>
+</div>
+</html>
+
+<!-- JavaScript -->
+<script>
+//Starts the matrix effect:
+function startMatrix() {
+  //Before anything happens, the binaryObj gets cleared:
+  document.getElementById("binaryObj").innerHTML = "";
+
+  var times = 0;
+  var lineCounter = 0;
+  var maxNum = Number(document.getElementById("amount").value);
+
+  while (times < maxNum) {
+    printMatrix();
+    times++;
+    lineCounter++;
+    if (lineCounter == 100) {
+        var currentText = document.getElementById("binaryObj").innerHTML;
+        document.getElementById("binaryObj").innerHTML = currentText + "<br>";
+        lineCounter = 0;
+    }
+  }
+}
+
+//Prints random numbers to the binaryObj:
+function printMatrix() {
+  var num = Math.random();
+  num = Math.round(num);
+  var currentText = document.getElementById("binaryObj").innerHTML;
+  document.getElementById("binaryObj").innerHTML = currentText + num;
+}
+</script>
